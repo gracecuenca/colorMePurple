@@ -1,0 +1,38 @@
+{
+
+  "manifest_version": 2,
+  "name": "INSERT EXTENSION NAME",
+  "version": "1.0",
+
+  "default_local": "en",
+  "description": "Allows the user to identify the political bias of a news article. Fake news articles
+  will be falgged, and at the end of an article, a popup gradient representing the political leaning of
+  an article will appear and offer an alternate news article. Will also record the user's history of
+  articles read and generate visuals to show and analyze user's political leaning.",
+  
+  "icons": {
+
+  },
+
+  "browser_action": {
+
+  },
+
+  "background": {
+    "scripts": [
+      "popup.js"
+    ],
+    "persistent": false
+  },
+
+  "content scripts": [
+    {
+      "js":["https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"]
+    }
+  ],
+
+  "permissions": [
+    "history"
+  ],
+
+}
