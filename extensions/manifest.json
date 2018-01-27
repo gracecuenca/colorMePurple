@@ -24,6 +24,13 @@
     "persistent": false
   },
 
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["Chart.js", "popup.js"]
+    }
+  ],
+
   "permissions": [
     "history",
     "activeTab"
