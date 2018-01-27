@@ -16,7 +16,33 @@ def add_history(website, url, rating):
     db.commit()
     db.close()
 
+#strings query to get website and finds rating
+def get_rating(url):
+    www_index = url.find("www.")
+    input = url
+    if(www_index != -1):
+        input = url[www_index + 4: ] #returns url w/o www.
+    https_index = input.find("https://")
+    if(https_index != -1):
+        input = input[https_index + 8: ]
+    slash_index = input.find("/")
+    if(slash_index != -1):
+        input = input[ : slash_index] # returns only main domain
+    #retrieve ratings from cleaned domain
+    print(input)
+    db = sqlite3.connect("data/ratings.db")
+    c = db.cursor()
+    x = c.execute("SELECT rating FROM news_sources WHERE url LIKE ?", [input])
+    for y in x:
+        print("+++++++++++++" + str(y[0]))
+        return(y[0])
+    print("doesnt work")
+    return "uggg"
 
+#get_rating("https://www.judicialwatch.org/press-room/press-releases/jw-pres-tom-fitton-speech-clinton-scandals-emails-benghazi-trump-dossier/")
+#get_rating("https://politics.theonion.com/trump-insists-he-never-thought-about-firing-mueller-fe-1822461545")
+
+'''
 # execute this file to create the initial database
 if __name__ == '__main__':
     # initialize database
@@ -104,3 +130,4 @@ add_history("Washington Examiner", "washingtonexaminer.com", right)
 add_history("Washington Post", "washingtonpost.com", lean_left)
 add_history("Watchdog.org", "watchdog.org", lean_right)
 add_history("Western Journalism", "westernjournal.com", right)
+'''
