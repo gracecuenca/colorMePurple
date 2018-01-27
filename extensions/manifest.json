@@ -5,7 +5,7 @@
   "version": "1.0",
 
   "description": "Allows the user to identify the political bias of a news article. Fake news articles
-  will be falgged, and at the end of an article, a popup gradient representing the political leaning of
+  will be flagged, and at the end of an article, a popup gradient representing the political leaning of
   an article will appear and offer an alternate news article. Will also record the user's history of
   articles read and generate visuals to show and analyze user's political leaning.",
 
@@ -14,7 +14,7 @@
   },
 
   "browser_action": {
-    "default_popup": "history.html"
+    "default_popup": "line.html"
   },
 
   "background": {
