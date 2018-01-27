@@ -1,4 +1,5 @@
 import sqlite3
+import json
 
 #ratings
 left = -1
@@ -6,15 +7,6 @@ lean_left = -0.5
 center = 0
 lean_right = 0.5
 right = 1
-
-def add_history(website, url, rating):
-    db = sqlite3.connect("../data/ratings.db")
-    c = db.cursor()
-    vals = [website, url, rating]
-    x = c.execute("INSERT INTO news_sources VALUES(?, ?, ?)", vals)
-    print("\n\nhere\n\n")
-    db.commit()
-    db.close()
 
 #strips url into main domain
 def strip(url):
@@ -31,8 +23,59 @@ def strip(url):
     slash_index = input.find("/")
     if(slash_index != -1):
         input = input[ : slash_index] # removes rest of /'s
-    print(input)
+    #print(input)
     return input
+
+#populates fake news database
+def initialize_fake_news():
+    f = open("../static/fake-news-data.json")
+    data = json.loads(f.read())
+    f.close()
+    db = sqlite3.connect("../data/ratings.db")
+    c = db.cursor()
+    for source in data:
+        website = source['siteTitle']
+        url = strip(source['siteUrl'].lower())
+        category = source["siteCategory"]
+        vals = [website, url, '', category]
+        print(vals)
+        x = c.execute("INSERT INTO fake_news VALUES(?, ?, ?, ?)", vals)
+    db.commit()
+    db.close()
+    return True
+#initialize_fake_news()
+
+#returns list of all fake_news urls
+def fake_news_urls():
+    db = sqlite3.connect("../data/ratings.db")
+    c = db.cursor()
+    x = c.execute("SELECT url FROM fake_news")
+    urls = []
+    for url in x:
+        print(url[0])
+        urls.append(url[0])
+    db.commit()
+    db.close()
+    return urls
+
+#adds reasons to fake_news database
+def add_reasons(reason, url):
+    db = sqlite3.connect("../data/ratings.db")
+    c = db.cursor()
+    c.execute("UPDATE fake_news SET reasons=? WHERE url=?", [reason, url])
+    db.commit()
+    db.close()
+#add_reasons("", "zerohedge.com")
+
+#adds history to database
+def add_history(website, url, rating):
+    db = sqlite3.connect("../data/ratings.db")
+    c = db.cursor()
+    vals = [website, url, rating]
+    x = c.execute("INSERT INTO news_sources VALUES(?, ?, ?)", vals)
+    print("\n\nhere\n\n")
+    db.commit()
+    db.close()
 
 #retrieve ratings from cleaned domain
 def get_rating(url):
@@ -63,7 +106,7 @@ if __name__ == '__main__':
     #table for news history of user
     c.execute("CREATE TABLE history (website TEXT, date TEXT, rating FLOAT)")
     #table for fake news
-    c.execute("CREATE TABLE fake_news (website TEXT, url TEXT, reasons TEXT, category TEXT)")
+    c.execute("CREATE TABLE fake_news (website TEXT PRIMARY KEY, url TEXT, reasons TEXT, category TEXT)")
     #table for agree/disagree button
     #agree_disagree: agree = 0; disagree = 1
     c.execute("CREATE TABLE crowdsource (website TEXT, agree_disagree INT)")
