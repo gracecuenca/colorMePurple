@@ -25,6 +25,9 @@ def get_rating(url):
     https_index = input.find("https://")
     if(https_index != -1):
         input = input[https_index + 8: ]
+    http_index = input.find("http://")
+    if(http_index != -1):
+        input = input[http_index + 7: ]
     slash_index = input.find("/")
     if(slash_index != -1):
         input = input[ : slash_index] # returns only main domain
@@ -37,7 +40,7 @@ def get_rating(url):
         print("+++++++++++++" + str(y[0]))
         return(y[0])
     print("doesnt work")
-    return "uggg"
+    return None
 
 #get_rating("https://www.judicialwatch.org/press-room/press-releases/jw-pres-tom-fitton-speech-clinton-scandals-emails-benghazi-trump-dossier/")
 #get_rating("https://politics.theonion.com/trump-insists-he-never-thought-about-firing-mueller-fe-1822461545")
