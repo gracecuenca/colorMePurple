@@ -39,13 +39,23 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
           r: 10
         }]
       }, {
-        label: ['Wall Street Journal'],
-        backgroundColor: "rgba(70,46,12,0.6)",
-        borderColor: "rgba(70,46,12,1)",
+        label: ['Fox News'],
+        backgroundColor: "rgba(70,200,12,0.6)",
+        borderColor: "rgba(70,200,12,1)",
         data: [{
           x: 0.88,
           y: -0.02,
-          r: 2
+          r: 5
+        }]
+      },
+      {
+        label: ['Wall Street Journal'],
+        backgroundColor: "rgba(100,46,12,0.6)",
+        borderColor: "rgba(100,46,12,1)",
+        data: [{
+          x: 0.1,
+          y: 0.3,
+          r: 12
         }]
       }
     ]

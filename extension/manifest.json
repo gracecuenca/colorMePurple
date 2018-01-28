@@ -14,7 +14,8 @@
   },
 
   "browser_action": {
-    "default_popup": "gradient.html"
+    "default_popup": "gradient.html",
+    "default_icon" : "icon.png"
   },
 
   "content_scripts": [
