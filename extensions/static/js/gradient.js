@@ -7,6 +7,32 @@
 //hardcoded for now
 //will retrieve from data base
 
+var client = new Diffbot("9ee5de7ae41d96b92648547051b77e0c");
+var current_url = "";
+
+var retrieveArticleInfo = function(){
+  client.article.get({
+            url: current_url
+        }, function onSuccess(response) {
+            // output the title
+            var element = document.getElementById("content");
+            element.innerHTML = response["objects"][0]["title"];
+        }, function onError(response) {
+              switch(response.errorCode) {
+                case 401:
+                    alert(response.error)
+                    break;
+                case 404:
+                    alert(response.error)
+                    break;
+                case 500:
+                    alert(response.error)
+                    break;
+              }
+        });
+};
+
+
 var gradient = new Chart(document.getElementById("gradient"), {
   type: 'bubble',
   data: {
