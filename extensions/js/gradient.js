@@ -13,7 +13,7 @@ var gradient = new Chart(document.getElementById("gradient"), {
     datasets: [
       {
         label: ['Your Article'], //pull actual article name
-        backgroundColor:"rgba(255,221,50,1)",
+        backgroundColor:"rgba(255,221,50,0.6)",
         borderColor: "rgba(255,221,50,1)",
         data: [{
           x: -2500,
@@ -32,17 +32,25 @@ var gradient = new Chart(document.getElementById("gradient"), {
     },
     scales: {
         yAxes: [{
+          gridLines: {
+            drawBorder: false,
+            display: false
+          },
           ticks: {
             display: false,
             fontColor: "black"
           },
           scaleLabel: {
-            display: true,
+            display: false,
             labelString: "Accuracy",
             fontColor: "black"
           }
         }],
         xAxes : [{
+          gridLines: {
+            drawBorder: false,
+            display: false
+          },
           ticks: {
             display: false,
             fontColor: "black"

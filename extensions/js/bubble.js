@@ -22,7 +22,7 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
     datasets: [
       {
         label: ['New York Times'],
-        backgroundColor:"rgba(255,221,50,1)",
+        backgroundColor:"rgba(255,221,50,0.6)",
         borderColor: "rgba(255,221,50,1)",
         data: [{
           x: -2500,
@@ -31,7 +31,7 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
         }]
       }, {
         label: ['The New Yorker'],
-        backgroundColor: "rgba(60,186,159,1)",
+        backgroundColor: "rgba(60,186,159,0.6)",
         borderColor: "rgba(60,186,159,1)",
         data: [{
           x: -2000,
@@ -40,7 +40,7 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
         }]
       }, {
         label: ['Wall Street Journal'],
-        backgroundColor: "rgba(193,46,12,1)",
+        backgroundColor: "rgba(193,46,12,0.6)",
         borderColor: "rgba(193,46,12,1)",
         data: [{
           x: 2000,
@@ -64,7 +64,7 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
           },
           scaleLabel: {
             display: true,
-            labelString: "Accuracy",
+            labelString: "Reliability",
             fontColor: "black"
           }
         }],
