@@ -1,9 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
   <head>
     <title>Where's Your Article?</title>
     <script src = "../static/js/Chart.js"></script>
+    <script type="text/javascript" src="diffbot.js"></script>
+    <script>
+      var current_url = "https://politics.theonion.com/trump-insists-he-never-thought-about-firing-mueller-fe-1822461545";
+
+      var client = new Diffbot("9ee5de7ae41d96b92648547051b77e0c");
+      var title = "";
+      var content = "";
+      var author = "";
+      var sentiment = 0.0;
+
+      var retrieveWordInfo = function(){
+        client.article.get({
+               url: current_url
+           }, function onSuccess(response) {
+               // output the title
+               resp = response["objects"][0];
+               title = resp["title"];
+               console.log("title: " + title);
+               content = resp["text"];
+               console.log("content: " + content);
+               author = resp["author"];
+               console.log("author: " + author);
+               sentiment = resp["sentiment"];
+               console.log("sentiment: " + String(sentiment));
+
+           }, function onError(response) {
+                 switch(response.errorCode) {
+                   case 401:
+                       alert(response.error)
+                       break;
+                   case 404:
+                       alert(response.error)
+                       break;
+                   case 500:
+                       alert(response.error)
+                       break;
+                 }
+           });
+
+      };
+
+      var checkDatabase = function(){
+        return 0.0;
+      };
+
+      var checkAuthor = function(){
+        authorWords = author.split(" ");
+        if (authorWords.length > 3 || authorWords.length < 2){
+          return -0.2;
+        }
+        return 0.0;
+      };
+
+      var checkSentiment = function(){
+        return (sentiment / 4);
+      };
+
+      var reliabilityScore = function(){
+        var score = 1.0;
+        score += checkDatabase();
+        score += checkAuthor();
+        score += checkSentiment();
+      }
+
+      retrieveWordInfo()
+
+    </script>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   </head>
 
