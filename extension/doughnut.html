@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
   <head>
-    <title>Liberal and Conservative Articles read over Time</title>
-    <script src = "../static/js/Chart.js"></script>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <title>Percentage of Liberal and Conservative Articles Read</title>
+    <script src = "js/Chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
@@ -17,7 +17,7 @@
         <input type = "submit" value = "Doughnut Chart"/>
       </form>
       </div>
-
+      
       <div class = "inner">
       <form action = "line.html">
         <input type = "submit" value = "Line Chart"/>
@@ -30,14 +30,14 @@
       </form>
       </div>
 
+    </div>
+
+    <h1>Percentage of Liberal and Conservative Articles Read</h1>
+    <canvas id="doughnutChart" width="1600" height="900"></canvas>
+
   </div>
 
-    <h1>Liberal and Conservative Articles Read over Time</h1>
-    <canvas id="lineChart" width="1600" height="900"></canvas>
-
-  </div>
-
-    <script src = "../static/js/line.js"></script>
+    <script src = "js/doughnut.js"></script>
   </body>
 
 </html>
