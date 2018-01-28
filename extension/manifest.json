@@ -27,6 +27,7 @@
   "permissions": [
     "history",
     "activeTab"
-  ]
+  ],
 
+  "content_security_policy": "script-src 'self' 'sha256-vbmRhQ/gE3si6C8WWaap68GdDi0cZ6YFXHhixgLKjhg='"
 }
