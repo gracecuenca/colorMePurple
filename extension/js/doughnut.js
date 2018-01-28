@@ -7,10 +7,25 @@ var doughnutChart = new Chart(document.getElementById("doughnutChart"), {
       {
         label: "Number Articles",
         backgroundColor: ["#3e95cd","#c45850"],
-        data: [10000, 2000]
+        data: [36, 11]
       }
     ]
   },
   options: {
+    tooltips: {
+			callbacks: {
+				label: function(tooltipItem, data) {
+					var allData = data.datasets[tooltipItem.datasetIndex].data;
+					var tooltipLabel = data.labels[tooltipItem.index];
+					var tooltipData = allData[tooltipItem.index];
+					var total = 0;
+					for (var i in allData) {
+						total += allData[i];
+					}
+					var tooltipPercentage = Math.round((tooltipData / total) * 100);
+					return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+				}
+			}
     }
+  }
 });
