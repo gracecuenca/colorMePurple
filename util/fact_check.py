@@ -3,13 +3,6 @@ import json
 import Algorithmia
 import newspaper
 
-
-# f = open("keys.txt", 'rU')
-# keys = json.loads(f.read())
-# f.close()
-#
-# client = textapi.Client(keys["id"], keys["key"])
-
 def check_database(url):
     source = newspaper.build(url)
     url = database.strip(url)

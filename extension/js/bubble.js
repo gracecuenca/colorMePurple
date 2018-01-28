@@ -25,33 +25,44 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
         backgroundColor:"rgba(255,221,50,0.6)",
         borderColor: "rgba(255,221,50,1)",
         data: [{
-          x: -2500,
-          y: 50,
-          r: 50
+          x: -0.75,
+          y: 0.8,
+          r: 22
         }]
       }, {
         label: ['The New Yorker'],
         backgroundColor: "rgba(60,186,159,0.6)",
         borderColor: "rgba(60,186,159,1)",
         data: [{
-          x: -2000,
-          y: 70,
-          r: 30
+          x: -0.65,
+          y: 0.72,
+          r: 10
         }]
       }, {
-        label: ['Wall Street Journal'],
-        backgroundColor: "rgba(193,46,12,0.6)",
-        borderColor: "rgba(193,46,12,1)",
+        label: ['Fox News'],
+        backgroundColor: "rgba(70,200,12,0.6)",
+        borderColor: "rgba(70,200,12,1)",
         data: [{
-          x: 2000,
-          y: -33,
-          r: 10
+          x: 0.88,
+          y: -0.02,
+          r: 5
+        }]
+      },
+      {
+        label: ['Wall Street Journal'],
+        backgroundColor: "rgba(100,46,12,0.6)",
+        borderColor: "rgba(100,46,12,1)",
+        data: [{
+          x: 0.1,
+          y: 0.3,
+          r: 12
         }]
       }
     ]
   },
   options: {
     legend: {
+      position: 'bottom',
       labels: {
         fontColor: "black"
       }
@@ -60,7 +71,9 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
         yAxes: [{
           ticks: {
             display: false,
-            fontColor: "black"
+            fontColor: "black",
+            min: -1.0,
+            max: 1.0
           },
           scaleLabel: {
             display: true,
@@ -71,14 +84,16 @@ var bubbleChart = new Chart(document.getElementById("bubbleChart"), {
         xAxes : [{
           ticks: {
             display: false,
-            fontColor: "black"
+            fontColor: "black",
+            min: -1.0,
+            max: 1.0
           },
           scaleLabel: {
-            display: true,
+            display: false,
             labelString: "Political Lean",
             fontColor: "black"
           }
         }]
       }
-    }
+    },
 });

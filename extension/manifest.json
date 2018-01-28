@@ -14,29 +14,21 @@
   },
 
   "browser_action": {
-    "default_popup": "templates/gradient.html"
-  },
-
-  "background": {
-    "scripts": [
-      "static/js/bubble.js",
-      "static/js/doughnut.js",
-      "static/js/line.js",
-      "static/js/gradient.js"
-    ],
-    "persistent": false
+    "default_popup": "gradient.html",
+    "default_icon" : "icon.png"
   },
 
   "content_scripts": [
     {
       "matches": ["http://*/*"],
-      "js": ["static/js/Chart.js", "static/js/bubble.js", "static/js/doughnut.js", "static/js/line.js", "static/js/gradient.js"]
+      "js": ["js/Chart.js", "js/bubble.js", "js/doughnut.js", "js/line.js", "js/gradient.js"]
     }
   ],
 
   "permissions": [
     "history",
     "activeTab"
-  ]
+  ],
 
+  "content_security_policy": "script-src 'self' 'sha256-vbmRhQ/gE3si6C8WWaap68GdDi0cZ6YFXHhixgLKjhg='"
 }
