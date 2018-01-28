@@ -33,9 +33,10 @@ def get_tags(title):
     for i in range(len(result)):
         print(i)
         if(result[i][1].find("J") == -1): #word is not an adjective (JJ, JJR, JJS)
-            input += " " + result[i][0]
+            input += "+" + result[i][0]
+    print(input)
     return input
-#get_tags("Trump sought release of secret Nunes memo, putting him at odds with Justice Department")
+# get_tags("Trump sought release of secret Nunes memo, putting him at odds with Justice Department")
 
 #finds random article given a random number on the spectrum
 def find_random(title):
@@ -47,11 +48,15 @@ def find_random(title):
     # try:
     res = requests.get(url)
     data = res.json()
-    print(data['items'][2]['pagemap']['metatags'])#['og:url'])#['article']) #[0]['url'])
-    # except:
-    #     print("uh doesn't work hun")
+    for x in range(len(data['items'])):
+        try:
+            print(data['items'][x]['link'])#['pagemap']['metatags'][0]['og:url'])#['link'])#['formattedUrl'])#['og:url'])#['article']) #[0]['url'])
+            print("=================================")
+        except:
+            print("uh doesn't work hun")
 
-find_random("blahblah blah blah")
+#find_random("Trump sought release of secret Nunes memo, putting him at odds with Justice Department")
+find_random("Ald. Burke under ethics board investigation for possible conflict of interest")
 
 #finds alternative article on the opposite side of the spectrum
 def find_alternative(title, website):
