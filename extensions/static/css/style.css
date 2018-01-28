@@ -1,0 +1,47 @@
+body {
+  font-family: Helvetica Neue, Arial, sans-serif;
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+#outer {
+    width:100%;
+    text-align: center;
+}
+
+.inner {
+    display: inline-block;
+}
+
+h1 {
+  font-weight: 200;
+  font-size: 2em;
+  margin: 0 0 0.1em 0;
+}
+
+h2 {
+  font-weight: 200;
+  font-size: 1.2em;
+}
+
+a {
+  margin-top: 50px;
+  display: block;
+  color: #3e95cd;
+}
+
+#bubbleChart {
+  background:
+  linear-gradient(to bottom, transparent, rgb(255,255,255)),
+  linear-gradient(90deg, blue, red);
+}
+
+#gradient {
+  background:
+  linear-gradient(to bottom, transparent, rgb(255,255,255)),
+  linear-gradient(90deg, blue, red);
+}
