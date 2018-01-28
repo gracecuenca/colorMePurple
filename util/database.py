@@ -1,5 +1,6 @@
 import sqlite3
 import json
+import datetime
 
 #ratings
 left = -1
@@ -65,13 +66,41 @@ def add_reasons(reason, url):
     db.close()
 #add_reasons("", "zerohedge.com")
 
-#adds history to database
-def add_history(website, url, rating):
+#retrieve ratings from cleaned domain
+def get_rating(url):
+    input = strip(url)
     db = sqlite3.connect("../data/ratings.db")
     c = db.cursor()
-    vals = [website, url, rating]
-    x = c.execute("INSERT INTO news_sources VALUES(?, ?, ?)", vals)
-    print("\n\nhere\n\n")
+    x = c.execute("SELECT rating FROM news_sources WHERE url LIKE ?", [input])
+    for y in x:
+        #print("+++++++++++++" + str(y[0]))
+        db.close()
+        return(y[0])
+    #print("doesnt work")
+    db.close()
+    return None
+
+#history : website, date, rating, times_visited)"
+#adds history to database
+def add_history(url):
+    website = strip(url)
+    now = datetime.datetime.now() #gets today's datetime
+    date = str(now.year) + "-" + str(now.month) + "-" + str(now.day)
+    db = sqlite3.connect("../data/ratings.db")
+    c = db.cursor()
+    #checks if news_source exists already
+    c.execute("SELECT website FROM history WHERE website=?", [website])
+    data = c.fetchall()
+    if not data: #not found
+        print("not found")
+        rating = get_rating(url)
+        vals = [website, date, rating, 0]
+        c.execute("INSERT INTO history VALUES(?, ?, ?, ?)", vals)
+    else: #found, adds to date and times_visited column
+        #get dates
+        vals = ["," + date, website]
+        c.execute("UPDATE history SET times_visited=times_visited+1, date=date||? WHERE website=?", vals)
+        print("yur")
     db.commit()
     db.close()
 
@@ -88,9 +117,6 @@ def get_rating(url):
     print("doesnt work")
     db.close()
     return None
-#########TESTING################
-#get_rating("https://www.judicialwatch.org/press-room/press-releases/jw-pres-tom-fitton-speech-clinton-scandals-emails-benghazi-trump-dossier/")
-#get_rating("https://politics.theonion.com/trump-insists-he-never-thought-about-firing-mueller-fe-1822461545")
 
 '''
 # execute this file to create the initial database

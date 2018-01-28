@@ -6,6 +6,7 @@ import random
 import Algorithmia
 import nltk
 
+#must download beforehand
 #nltk.download('averaged_perceptron_tagger')
 
 #picks random news source from database with given rating
