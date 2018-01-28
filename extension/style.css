@@ -45,3 +45,29 @@ a {
   linear-gradient(to bottom, transparent, rgb(255,255,255)),
   linear-gradient(90deg, blue, red);
 }
+
+.rightbtn {
+    line-height: 12px;
+    width: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right:180px;
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+.leftbtn {
+    line-height: 12px;
+    width: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 130px;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.btn {
+
+}

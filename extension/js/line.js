@@ -30,5 +30,13 @@ var lineChart = new Chart(document.getElementById("lineChart"), {
         fill: false
       }
     ]
+  },
+  options: {
+    legend: {
+      position: 'bottom',
+      labels: {
+        fontColor: "black"
+      }
+    }
   }
 });
