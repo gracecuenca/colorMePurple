@@ -5,6 +5,7 @@ import database
 import random
 import Algorithmia
 import nltk
+import requests
 
 #must download beforehand
 #nltk.download('averaged_perceptron_tagger')
@@ -41,7 +42,16 @@ def find_random(title):
     rating = random.randrange(-10, 10, 5) / 10.0
     news_source = get_news_source(rating)
     keywords = get_tags(title)
-    return find_article(keywords + " " + news_source, rating)
+    query = keywords #+ " " + news_source
+    url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCct5M0BgsjZ_Fl-QQXNjWfXuhWkYS91zY&cx=009075568653349274157:erwoj2uzova&q="+query
+    # try:
+    res = requests.get(url)
+    data = res.json()
+    print(data['items'][2]['pagemap']['metatags'])#['og:url'])#['article']) #[0]['url'])
+    # except:
+    #     print("uh doesn't work hun")
+
+find_random("blahblah blah blah")
 
 #finds alternative article on the opposite side of the spectrum
 def find_alternative(title, website):
