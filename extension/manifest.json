@@ -26,12 +26,11 @@
   ],
 
   "permissions": [
+    "tabs",
     "history",
     "activeTab",
     "https://api.diffbot.com/v3/article/*"
-  ],
-  "content_security_policy":"default-src 'self';
-    https://api.diffbot.com/v3/article/; object-src 'self'"
+  ]
 
 
 }
