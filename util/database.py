@@ -43,7 +43,7 @@ def initialize_fake_news():
     db.commit()
     db.close()
     return True
-#initialize_fake_news()
+# initialize_fake_news()
 
 #returns list of all fake_news urls
 def fake_news_urls():
@@ -90,7 +90,6 @@ def get_rating(url):
     print("doesnt work")
     db.close()
     return None
-
 #########TESTING################
 #get_rating("https://www.judicialwatch.org/press-room/press-releases/jw-pres-tom-fitton-speech-clinton-scandals-emails-benghazi-trump-dossier/")
 #get_rating("https://politics.theonion.com/trump-insists-he-never-thought-about-firing-mueller-fe-1822461545")
@@ -104,7 +103,7 @@ if __name__ == '__main__':
     # initial table for news sources
     c.execute("CREATE TABLE news_sources (website TEXT, url TEXT, rating FLOAT)")
     #table for news history of user
-    c.execute("CREATE TABLE history (website TEXT, date TEXT, rating FLOAT)")
+    c.execute("CREATE TABLE history (website TEXT, date TEXT, rating FLOAT, times_visited INT)")
     #table for fake news
     c.execute("CREATE TABLE fake_news (website TEXT PRIMARY KEY, url TEXT, reasons TEXT, category TEXT)")
     #table for agree/disagree button
