@@ -1,6 +1,6 @@
 from newspaper import Article
 
-url = 'https://www.wsj.com/articles/dozens-of-people-recount-pattern-of-sexual-misconduct-by-las-vegas-mogul-steve-wynn-1516985953' # later to be replaced by active tab's url
+url = "https://www.wsj.com/articles/dozens-of-people-recount-pattern-of-sexual-misconduct-by-las-vegas-mogul-steve-wynn-1516985953" # later to be replaced by active tab's url
 article = Article(url)
 article.download()
 article.parse()
@@ -15,6 +15,13 @@ def author():
 def keywords():
     return article.keywords
 
+def summary():
+    return article.summary
+
+def content():
+    return article.text
+
 print(title())
 print(author())
 print(keywords())
+print(summary())
