@@ -38,7 +38,6 @@ def initialize_fake_news():
         url = strip(source['siteUrl'].lower())
         category = source["siteCategory"]
         vals = [website, url, '', category]
-        print(vals)
         x = c.execute("INSERT INTO fake_news VALUES(?, ?, ?, ?)", vals)
     db.commit()
     db.close()
