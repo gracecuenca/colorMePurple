@@ -7,7 +7,7 @@ var doughnutChart = new Chart(document.getElementById("doughnutChart"), {
       {
         label: "Number Articles",
         backgroundColor: ["#3e95cd","#c45850"],
-        data: [10000, 2000]
+        data: [liberal_articles, conservative_articles]
       }
     ]
   },
