@@ -12,19 +12,20 @@ var gradient = new Chart(document.getElementById("gradient"), {
   data: {
     datasets: [
       {
-        label: ['Your Article'],
+        label: ['Your Article'], //pull actual article name
         backgroundColor:"rgba(255,221,50,1)",
         borderColor: "rgba(255,221,50,1)",
         data: [{
           x: -2500,
           y: 50,
-          r: 2
+          r: 10
         }]
       }
     ]
   },
   options: {
     legend: {
+      display: false,
       labels: {
         fontColor: "black"
       }
@@ -47,7 +48,7 @@ var gradient = new Chart(document.getElementById("gradient"), {
             fontColor: "black"
           },
           scaleLabel: {
-            display: true,
+            display: false,
             labelString: "Political Lean",
             fontColor: "black"
           }
