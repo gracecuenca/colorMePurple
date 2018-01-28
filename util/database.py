@@ -51,7 +51,6 @@ def fake_news_urls():
     x = c.execute("SELECT url FROM fake_news")
     urls = []
     for url in x:
-        print(url[0])
         urls.append(url[0])
     db.commit()
     db.close()
