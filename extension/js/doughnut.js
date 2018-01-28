@@ -12,6 +12,12 @@ var doughnutChart = new Chart(document.getElementById("doughnutChart"), {
     ]
   },
   options: {
+    legend: {
+      position: 'bottom',
+      labels: {
+        fontColor: "black"
+      }
+    },
     tooltips: {
 			callbacks: {
 				label: function(tooltipItem, data) {
