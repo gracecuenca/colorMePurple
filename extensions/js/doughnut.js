@@ -12,9 +12,5 @@ var doughnutChart = new Chart(document.getElementById("doughnutChart"), {
     ]
   },
   options: {
-      title: {
-        display: true,
-        text: 'Number of Liberal and Conservative Articles Read'
-      }
     }
 });

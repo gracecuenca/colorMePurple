@@ -34,3 +34,9 @@ a {
   display: block;
   color: #3e95cd;
 }
+
+#bubbleChart {
+  background:
+  linear-gradient(to bottom, transparent, rgb(255,255,255)),
+  linear-gradient(90deg, blue, red);
+}
