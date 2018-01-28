@@ -1,7 +1,10 @@
 from newspaper import Article
 import fact_check
 
-url = "https://www.wsj.com/articles/dozens-of-people-recount-pattern-of-sexual-misconduct-by-las-vegas-mogul-steve-wynn-1516985953" # later to be replaced by active tab's url
+#url = "https://politics.theonion.com/trump-insists-he-never-thought-about-firing-mueller-fe-1822461545" # later to be replaced by active tab's url
+#url = "http://uspoliticalpost.com/economic_terrorism_exposed/"
+#url = "http://empirenews.net/trump-begins-waging-battle-against-the-war-on-new-years-eve/"
+url = "https://nypost.com/2018/01/27/cheating-still-rampant-at-disgraced-stuyvesant-school/"
 article = Article(url)
 article.download()
 article.parse()
@@ -24,7 +27,7 @@ def content():
 
 reliability_score = fact_check.return_score(url, author(), content())
 print(reliability_score)
-print(title())
-print(author())
-print(keywords())
-print(summary())
+# print(title())
+# print(author())
+# print(keywords())
+# print(summary())
