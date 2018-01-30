@@ -38,7 +38,9 @@ var gradient = new Chart(document.getElementById("gradient"), {
           },
           ticks: {
             display: false,
-            fontColor: "black"
+            fontColor: "black",
+            min: 0,
+            max: 1.0
           },
           scaleLabel: {
             display: false,
@@ -53,7 +55,9 @@ var gradient = new Chart(document.getElementById("gradient"), {
           },
           ticks: {
             display: false,
-            fontColor: "black"
+            fontColor: "black",
+            min: -1.0,
+            max: 1.0
           },
           scaleLabel: {
             display: false,

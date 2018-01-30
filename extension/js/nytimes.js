@@ -16,9 +16,9 @@ var gradient = new Chart(document.getElementById("gradient"), {
         backgroundColor:"rgba(255,221,50,0.6)",
         borderColor: "rgba(255,221,50,1)",
         data: [{
-          x: -1,
-          y: .9,
-          r: 10
+          x: -0.5,
+          y: .85,
+          r: 7
         }]
       }
     ]
@@ -38,7 +38,9 @@ var gradient = new Chart(document.getElementById("gradient"), {
           },
           ticks: {
             display: false,
-            fontColor: "black"
+            fontColor: "black",
+            min: 0,
+            max: 1.0
           },
           scaleLabel: {
             display: false,
@@ -53,7 +55,9 @@ var gradient = new Chart(document.getElementById("gradient"), {
           },
           ticks: {
             display: false,
-            fontColor: "black"
+            fontColor: "black",
+            min: -1.0,
+            max: 1.0
           },
           scaleLabel: {
             display: false,

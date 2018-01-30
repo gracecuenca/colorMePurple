@@ -27,9 +27,15 @@ function myFunction(tablink) {
       var el = document.createElement("script");
         if (key==="nytimes.com"){
           el.setAttribute("src", "js/nytimes.js");
+          var yourElement = document.getElementById('alternate');
+          yourElement.setAttribute('href', 'http://www.thefiscaltimes.com/2018/01/25/Tax-Cuts-Will-Have-Limited-Impact-Economy-Moody-s-Says');
+          yourElement.setAttribute('target','_blank');
         }
         if (key==="bostonglobe.com"){
           el.setAttribute("src","js/bostonglobe.js");
+          var yourElement = document.getElementById('alternate');
+          yourElement.setAttribute('href', 'https://www.wsj.com/articles/dozens-of-people-recount-pattern-of-sexual-misconduct-by-las-vegas-mogul-steve-wynn-1516985953');
+          yourElement.setAttribute('target','_blank');
         }
       chart.appendChild(el);
       return;
